@@ -27,12 +27,16 @@
 }
 
 body {
+  --primary-indigo: #6877FF;
+  --dark-black: #1E1E1E;
+  --black: #121212;
+  --pale-white: #B1B1B1;
   margin: 0;
   font-family: "HelveticaNowDisplay", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 100vw;
   height: 100vh;
-  background: #121212;
+  background: var(--black);
 }
 
