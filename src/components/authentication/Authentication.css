@@ -1,0 +1,49 @@
+.authentication-container {
+    grid-area: main-section;
+    width: 500px;
+    justify-self: center;
+    align-self: center;
+    display: grid;
+    grid-auto-flow: row;
+    grid-gap: 40px;
+    justify-items: center;
+}
+
+.input-list {
+    width: 100%;
+    display: grid;
+    grid-auto-flow: row;
+    grid-gap: 20px;
+    text-align: center;
+}
+
+.authentication-heading {
+    font-size: 48px;
+    font-weight: 600;
+    color: white;
+    margin: 0;
+}
+
+.auth-type {
+    font-size: 16px;
+    color: var(--pale-white);
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.auth-type:hover {
+    cursor: pointer;
+}
+
+.error-message {
+    font-size: 16px;
+    color: red;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+form {
+    display: grid;
+    grid-auto-flow: row;
+    grid-gap: 20px;
+}

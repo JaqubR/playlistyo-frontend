@@ -1,0 +1,20 @@
+.search-bar-wrapper {
+    width: 500px;
+    position: relative;
+}
+
+.search-bar-icon {
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+    right: 15px;
+    width: 32px;
+    height: 32px;
+    color: var(--pale-white);
+    transition: all 0.2s ease-in;
+}
+
+.search-bar-icon:hover {
+    color: white;
+    cursor: pointer;
+}

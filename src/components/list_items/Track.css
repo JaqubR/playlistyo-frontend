@@ -1,0 +1,54 @@
+.track-container {
+    display: grid;
+    grid-template-columns: 75px 400px 80px;
+    justify-items: start;
+    align-items: center;
+    height: 55px;
+}
+
+p {
+    font-size: 24px;
+    margin: 0;
+    line-height: 24px;
+}
+
+.track-labels {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.track-title {
+    color: #FFFFFF;
+    font-weight: 500;
+}
+
+.track-author {
+    color: var(--pale-white);
+    font-weight: 400;
+}
+
+.track-buttons-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.track-button {
+    border: none;
+    background: none;
+    padding: 0;
+}
+
+.track-button-icon {
+    width: 32px;
+    height: 32px;
+    color: var(--pale-white);
+    transition: all 0.2s ease-in;
+}
+
+.track-button-icon:hover {
+    cursor: pointer;
+    color: white;
+}

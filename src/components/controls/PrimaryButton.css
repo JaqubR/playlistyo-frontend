@@ -1,0 +1,17 @@
+.primary-button {
+    width: 100%;
+    height: 50px;
+    background: var(--primary-indigo);
+    border-radius: 10px;
+    font-size: 21px;
+    font-weight: 500;
+    color: white;
+    border: none;
+    text-transform: uppercase;
+    transition: all 0.2s ease-in-out;
+}
+
+.primary-button:hover {
+    cursor: pointer;
+    filter: brightness(1.2);
+}

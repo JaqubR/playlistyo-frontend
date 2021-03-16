@@ -1,0 +1,16 @@
+.field {
+    width: calc(100% - 30px);
+    height: 20px;
+    background: var(--dark-black);
+    border-radius: 10px;
+    padding: 15px;
+    border: none;
+    font-size: 21px;
+    font-weight: 500;
+    color: white;
+    outline: none;
+}
+
+.field::placeholder {
+    color: var(--pale-white);
+}

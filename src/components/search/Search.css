@@ -1,0 +1,17 @@
+.tracks-container {
+    display: grid;
+    grid-auto-flow: row;
+    grid-gap: 30px;
+}
+
+.section-heading {
+    font-size: 32px;
+    color: white;
+    font-weight: 500;
+    margin-top: 42px;
+}
+
+.search-status {
+    color: white;
+    font-size: 32px;
+}
