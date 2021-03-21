@@ -20,21 +20,19 @@ function Overlay() {
                 .catch(err => console.log(err));
         } else if (overlayInfo.type === 'artist') {
             getDiscography(overlayInfo.id, overlayInfo.page)
-                .then(discography => {
-                    results.set(discography.releases)
-                    console.log(results.get());
-                })
+                .then(discography => results.set(discography.releases))
                 .catch(err => console.log(err));
         }
     }, [])
 
     const createList = () => {
         if (overlayInfo.type === 'album') return results.get().map(track => <Track title={track} artist={overlayInfo.title} />);
-        else if (overlayInfo.type === 'artist') return results.get().map(album => <Album album={album} />);
+        else if (overlayInfo.type === 'artist') return results.get().map(album => <Album album={album} key={album.id} />);
     }
 
     return (
-        <div className="overlay-background" onClick={() => isOverlayShown.set(false)}>
+        <>
+            <div className="overlay-background" onClick={() => isOverlayShown.set(false)} />
             <div className="overlay">
                 <div className="overlay-info">
                     <div className="mock-image" />
@@ -47,7 +45,7 @@ function Overlay() {
                     {results.get() && createList()}
                 </div>
             </div>
-        </div>
+        </>
     );
 }
 
