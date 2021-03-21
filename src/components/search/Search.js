@@ -1,11 +1,10 @@
-import "./Search.css";
 import SearchBar from "./SearchBar";
-import Track from "../list_items/Track";
-import {useState} from '@hookstate/core';
-import { searchTermState, favouriteArtistsState, favouriteAlbumsState } from "../../GlobalStates";
-import {useEffect} from 'react';
+import Album from "../list_items/Album";
+import { useState } from '@hookstate/core';
+import { searchTermState, favouriteArtistsState, favouriteAlbumsState, playlistState } from "../../GlobalStates";
+import { useEffect } from 'react';
 import axios from "axios";
-import {axiosConfig, URL} from "../../AxiosConfig";
+import { axiosConfig, URL } from "../../AxiosConfig";
 import Artist from "../list_items/Artist";
 
 function Search() {
@@ -15,6 +14,7 @@ function Search() {
     const searchResults = useState([]);
     const favouriteArtists = useState(favouriteArtistsState);
     const favouriteAlbums = useState(favouriteAlbumsState);
+    const playlist = useState(playlistState);
 
     useEffect(() => {
         axios.get(`${URL}userfav/fetchartists`, axiosConfig)
@@ -25,6 +25,11 @@ function Search() {
         axios.get(`${URL}userfav/fetchalbums`, axiosConfig)
             .then(res => {
                 favouriteAlbums.set(res.data);
+            })
+            .catch(err => console.log(err));
+        axios.get(`${URL}playlist/list`, axiosConfig)
+            .then(res => {
+                playlist.set(res.data);
             })
             .catch(err => console.log(err));
     }, []);
@@ -53,25 +58,21 @@ function Search() {
     }, [searchTerm]);
 
     return (
-        <div className="search">
+        <>
+            <h1 className="section-heading">Search</h1>
             <SearchBar />
             {searchStatus.get() === "found" &&
                 <>
-                    <h2 className="section-heading">
-                        Search results:
-                    </h2>
-                    <div className="tracks-container">
+                    <div className="results-container">
                         {searchResults.get().map(album => album.type === 1 ?
-                            <Track track={album} key={album.id} />
+                            <Album album={album} key={album.id} />
                             :
                             <Artist artist={album} key={album.id} />
                         )}
                     </div>
                 </>
             }
-            {searchStatus.get() === "empty" &&  <h2 className="section-heading">Search for something</h2>}
-            {searchStatus.get() === "searching" &&  <h2 className="section-heading">Searching...</h2>}
-        </div>
+        </>
     )
 }
 

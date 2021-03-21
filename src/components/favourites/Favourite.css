@@ -1,0 +1,43 @@
+.filter-control {
+    background: none;
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--pale-white);
+    border: none;
+    position: relative;
+    transition: color 0.3s ease-in-out;
+}
+
+.active-filter {
+    color: white;
+    font-weight: 500;
+}
+
+.filter-control::after {
+    content: '';
+    width: 15px;
+    height: 0;
+    border-radius: 2px;
+    background: var(--primary-indigo);
+    position: absolute;
+    opacity: 0;
+    left: 100px;
+    bottom: -2px;
+    transition: all 0.3s ease-in-out;
+}
+
+.active-filter::after {
+    height: 3px;
+    width: 35px;
+    opacity: 1;
+    content: '';
+    left: 2px !important;
+}
+
+.right::after {
+    left: -100px;
+}
+
+.filter-control:hover {
+    cursor: pointer;
+}

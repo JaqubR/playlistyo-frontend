@@ -14,20 +14,20 @@
     font-weight: 500;
 }
 
-.author-button {
+.artist-button {
     border: none;
     background: none;
     padding: 0;
 }
 
-.author-button-icon {
+.artist-button-icon {
     width: 32px;
     height: 32px;
     color: var(--pale-white);
     transition: all 0.2s ease-in;
 }
 
-.author-button-icon:hover {
+.artist-button-icon:hover {
     cursor: pointer;
     color: white;
 }

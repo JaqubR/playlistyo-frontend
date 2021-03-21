@@ -28,27 +28,3 @@ p {
     color: var(--pale-white);
     font-weight: 400;
 }
-
-.track-buttons-container {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.track-button {
-    border: none;
-    background: none;
-    padding: 0;
-}
-
-.track-button-icon {
-    width: 32px;
-    height: 32px;
-    color: var(--pale-white);
-    transition: all 0.2s ease-in;
-}
-
-.track-button-icon:hover {
-    cursor: pointer;
-    color: white;
-}

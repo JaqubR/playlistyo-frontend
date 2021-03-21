@@ -5,16 +5,18 @@ import { IoHeartOutline, IoHeart } from "react-icons/io5";
 import axios from "axios";
 import { axiosConfig, URL } from "../../AxiosConfig";
 import { useState } from "@hookstate/core";
-import { favouriteArtistsState } from "../../GlobalStates";
+import {favouriteArtistsState, isOverlayShownState, overlayInfoState} from "../../GlobalStates";
 import { useEffect } from 'react';
 
 function Artist({ artist }) {
-    const truncateString = longString => longString.length > 36 ? longString.substring(0, 35) + "…" : longString;
+    const truncateString = longString => longString.length > 34 ? longString.substring(0, 33) + "…" : longString;
 
     const name = truncateString(artist.title);
 
     const isLiked = useState(false);
     const favouriteArtists = useState(favouriteArtistsState);
+    const overlayInfo = useState(overlayInfoState);
+    const isOverlayShown = useState(isOverlayShownState);
 
     useEffect(() => {
         favouriteArtists.get().forEach(favouriteArtist => {
@@ -50,12 +52,21 @@ function Artist({ artist }) {
         }
     }
 
+    function updateOverlay() {
+        overlayInfo.set({
+            type: "artist",
+            id: artist.id,
+            title: name,
+        });
+        isOverlayShown.set(true);
+    }
+
     return (
         <div className="artist-container">
             <img src={artistImage} alt="artist" />
-            <p className="artist-name">{name}</p>
-            <button className="track-button" onClick={likeArtist}>
-                <IconContext.Provider value={{className: "track-button-icon"}}>
+            <p className="artist-name" onClick={updateOverlay}>{name}</p>
+            <button className="artist-button" onClick={likeArtist}>
+                <IconContext.Provider value={{className: "artist-button-icon"}}>
                     {isLiked.get() ? <IoHeart /> : <IoHeartOutline />}
                 </IconContext.Provider>
             </button>
